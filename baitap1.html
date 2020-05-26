@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mycanvas" width="200" height="100" style="border: 1px solid black"></canvas>
+    <script>
+        class Rectangle {
+            constructor(chieudai,chieurong) {
+                this.chieudai=chieudai;
+                this.chieurong=chieurong;
+            }
+            dientich(){
+             return  this.chieudai*this.chieurong;
+            }
+            chuvi() {
+                return (this.chieudai+this.chieurong)*2;
+            }
+            hcn(){
+                let canvas=document.getElementById("mycanvas");
+                let ctx = canvas.getContext("2d");
+                ctx.fillRect(0,0,this.chieudai,this.chieurong);
+            }
+        }
+        let hinhchunhat= new Rectangle(100,50);
+        document.write( hinhchunhat.dientich());
+        document.write(hinhchunhat.chuvi());
+        hinhchunhat.hcn();        
+
+    </script>
+</body>
+</html>
