@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thạnh - Thành</title>
+</head>
+
+<body>
+    <p>xây dựng class sinh viên , có các thuộc tính sau : id , name , email
+        và các phương thức get set của nó
+        khởi tạo mảng sinh viên gồm 10 phần tử . tìm kiếm sinh viên có email là thanh@.codegym.vn
+        nếu có email này thì đổi tên sinh viên này thành thanh . nếu không có email thì thông báo email k tồn tại
+        thanh@.codegym.vn
+    </p>
+</body>
+<script>
+    class Student {
+        constructor(id, name, email) {
+            this.id = id;
+            this.name = name;
+            this.email = email;
+        }
+        getname() {
+            return this.name
+        }
+        setname(newname) {
+            this.name = newname;
+        }
+        getid() {
+            return this.id;
+        }
+        setid(newid) {
+            this.id = newid;
+        }
+        getemail() {
+            return this.email;
+        }
+        setemail(newemail) {
+            this.email = newemail;
+        }
+    }
+    let student1 = new Student(0, 'A', 'thanh51@.codegym.vn');
+    let student2 = new Student(1, 'T', 'thanh1@.codegym.vn');
+    let student3 = new Student(2, 'Đ', 'than2h@.codegym.vn@');
+    let student4 = new Student(3, 'C', 'thanh1@.codegym.vn');
+    let student5 = new Student(4, 'V', 'thanh@.codegym.vn');
+    let student6 = new Student(5, 'B', 'thanh1@.codegym.vn');
+    let student7 = new Student(6, 'D', 'thanh@2.codegym.vn');
+    let student8 = new Student(7, 'G', 'thanh12@.codegym.vn');
+    let student9 = new Student(8, 'H', 'thanh13@.codegym.vn');
+    let student10 = new Student(9, 'K', 'thanh14@.codegym.vn');
+    let mang = [];
+    mang.push(student1);
+    mang.push(student2);
+    mang.push(student3);
+    mang.push(student4);
+    mang.push(student5);
+    mang.push(student6);
+    mang.push(student7);
+    mang.push(student8);
+    mang.push(student9);
+    mang.push(student10);
+    let emailTmp;
+    let tmp = false;
+    for (let i = 0; i < mang.length; i++) {
+        emailTmp = mang[i].getemail();
+        if (emailTmp === 'thanh@.codegym.vn') {
+            mang[i].setname('Thanh');
+            tmp = true;
+            break;
+        }
+    }
+    if (tmp===false) {
+        alert('Không có sinh viên nào có email là thanh@.codegym.vn');
+    }
+    console.log(mang);
+</script>
+</body>
+
+</html>
+
+</html>

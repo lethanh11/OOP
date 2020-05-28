@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="light-off.png" id="Light" weigh="200px" height="100px">
+    <button onclick="congtac()" id='btn'>Bật</button>
+
+    <script>
+        class Button {
+            constructor() {
+                this.status = false;
+            }
+            SwitchButton() {
+                this.status = !this.status;
+
+            }
+            connectTolamp(lightObject) {
+                lightObject.status = this.status;
+                // if(lightObject.status) {
+                //     document.getElementById('Light').src='light-on.png';
+                // } else {
+                //     document.getElementById('Light').src='light-off.png';
+                // }
+            }
+            switchOff() {
+                this.status = false;
+
+            }
+            switchOn() {
+                this.status = true;
+            }
+        }
+        class Lightbuild {
+            constructor() {
+                this.status = false;
+            }
+            tunrOff() {
+                document.getElementById('Light').src = 'light-off.png';
+            }
+            tunrOn() {
+                document.getElementById('Light').src = 'light-on.png';
+            }
+        }
+        let button1 = new Button();
+        let light = new Lightbuild();
+        function congtac() {
+            button1.SwitchButton();
+            button1.connectTolamp(light);
+            if (light.status) {
+                light.tunrOn();
+            } else {
+                light.tunrOff();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

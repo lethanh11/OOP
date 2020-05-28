@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Viết chương trình chạy ra 10 hình tròn và tìm hình tròn nhỏ nhất:</p>
+    <script>
+        class Circle{
+            constructor(name,color,radius)
+            { this.name = name;
+            this.color=color;
+            this.radius=radius;
+            }
+            getArea()
+        {
+            return Math.PI*this.radius*this.radius;
+        }
+        getChuvi()
+        {
+            return Math.PI*2*this.radius;
+        }
+
+        }
+        let i;
+        let array1=[];
+        let arrayArea=[];
+        for(i=0;i<10;i++)
+        { array1[i]=new Circle('circle'+i,'red',Math.floor(Math.random()*101)+1)
+
+        }
+        for(i=0;i<10;i++)
+        {
+            arrayArea[i]=array1[i].getArea();
+        }
+        let min = arrayArea[0];
+        for(i=1;i<10;i++)
+        {
+            if(arrayArea[i]<min)
+            { min=arrayArea[i]
+            }
+        }
+        document.write(min);
+    </script>
+</body>
+</html>

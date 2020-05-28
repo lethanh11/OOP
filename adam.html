@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age,gender,weight) {
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+                this.weight=weight;
+            }
+            eatapple(appleObject){
+                appleObject.weight-=1;
+                this.weight+=1;
+            }
+            isMale(){
+                if(male){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+            setGender(){
+
+            }
+        }
+        class AppleRed{
+            constructor(weight){
+                this.weight=weight
+            }
+        }
+        let Adam=new Person('Adam',18,'male',50);
+        let Apple=new AppleRed(5);
+        Adam.eatapple(Apple);
+        console.log(Adam.weight)
+    </script>
+</body>
+</html>

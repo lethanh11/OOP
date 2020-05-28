@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            border-radius: 50%;
+            padding: 20px;
+            left: 478px;
+            top: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="light-off.png" alt="" width="100px" height="150px" style="display: none;" id="imgOff">
+    <img src="light-on.png" alt="" width="100px" height="150px" style="display: none;" id="imgOn">
+    <button onclick="congtac.switchButton()" id='bat' style='position:absolute;'>Bật</button>
+    <canvas id='canvas' width="600" height="200" style="border: 2px solid red"></canvas>
+    <script>
+        let c = document.getElementById('canvas');
+        let ctx = c.getContext('2d');
+        let imgOff = document.getElementById('imgOff');
+        let imgOn = document.getElementById('imgOn');
+        window.onload = function () {
+            ctx.drawImage(imgOff, 0, 0, 130, 150);
+            ctx.beginPath();
+        }
+        class Button {
+            constructor() {
+                this.status = false;
+            }
+            switchButton() {
+                if (this.status) {
+                    this.status = !this.status;
+                    this.connectToLamp(light);
+                    light.tunrOff();
+                    this.switchOff();
+                    
+                } else {
+                    this.status = !this.status;
+                    this.connectToLamp(light);
+                    light.tunrOn();
+                    this.switchOn();
+                }
+            }
+            connectToLamp(lamp) {
+                this.lamp = lamp;
+            }
+            switchOff() {
+                document.getElementById('bat').innerHTML = 'Bật';
+            }
+            switchOn() {
+                document.getElementById('bat').innerHTML = 'Tắt';
+            }
+        }
+        class FlashLamp {
+            constructor(img) {
+                this.status = false;
+                this.img = img;
+            }
+            tunrOff() {
+                this.status = congtac.status;
+                this.img = imgOff;
+                ctx.clearRect(0, 0, 130, 150);
+                ctx.drawImage(this.img, 0, 0, 130, 150);
+            }
+            tunrOn() {
+                this.status = congtac.status;
+                this.img = imgOn;
+                ctx.clearRect(0, 0, 130, 150);
+                ctx.drawImage(this.img, 0, 0, 130, 150);
+            }
+        }
+        let light = new FlashLamp(imgOff);
+        let congtac = new Button();
+
+
+
+
+    </script>
+</body>
+
+</html>
